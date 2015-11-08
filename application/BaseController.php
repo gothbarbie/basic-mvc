@@ -19,8 +19,12 @@
     abstract public function index();
 
     // Magic method
-    public function __get($key)
+    // Final means it cannot be overridden
+    final public function __get($key)
     {
-
+        if ( $return = $this->_registry->$key) {
+            return $return;
+        }
+        return false;
     }
  }
