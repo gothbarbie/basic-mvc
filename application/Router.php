@@ -1,7 +1,9 @@
 <?php
 /**
  * Router
- * This class requires in the controller and calls method by Request
+ * Using Request, this class requires the Controller and then invokes the
+ * appropriate Method, appended with with arguments (if available).
+ * If the controller doesn't exist or isn't readable, it throws an 404 exception.
  */
 class Router
 {
@@ -30,6 +32,6 @@ class Router
             }
             return;
         }
-        throw new Exception('404 -  ' . $controller . ' not found');        
+        throw new Exception('404 -  ' . $controller . ' not found');
     }
 }
